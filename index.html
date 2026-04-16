@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Teach Place – El mundo que necesitas</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- FLOATING AMBIENT ICONS -->
+<div class="ambient-layer" id="ambientLayer"></div>
+
+<!-- =========================================
+     SCREEN 1: INICIO
+     ========================================= -->
+<div id="screenHome" class="screen active">
+  <header class="home-header">
+    <div class="brand">
+      <span class="brand-icon">⚙️</span>
+      <span class="brand-name">Teach<span class="accent">Place</span></span>
+    </div>
+    <div class="header-controls">
+      <button class="ctrl-btn" id="btnSound" title="Sonido">🔊</button>
+      <button class="ctrl-btn" id="btnTheme" title="Tema">🌙</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-badge">Educación Tecnológica · Nivel Intermedio-Avanzado</div>
+    <h1 class="hero-title">Teach<span class="accent">Place</span></h1>
+    <p class="hero-sub">El mundo que necesitas</p>
+    <p class="hero-desc">
+      Domina la creación de <strong>Bots para Discord</strong> desde cero.<br/>
+      Seis mundos, decenas de retos, retroalimentación en tiempo real.
+    </p>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-n">6</span><span class="stat-l">Mundos</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat"><span class="stat-n">42</span><span class="stat-l">Niveles</span></div>
+      <div class="stat-sep"></div>
+      <div class="stat"><span class="stat-n">5⭐</span><span class="stat-l">Retos</span></div>
+    </div>
+  </section>
+
+  <section class="worlds-grid" id="worldsGrid">
+    <!-- Generado por JS -->
+  </section>
+
+  <footer class="home-footer">
+    <span>© 2025 Teach Place · Área: Hardware &amp; Redes · Bots para Discord</span>
+  </footer>
+</div>
+
+<!-- =========================================
+     SCREEN 2: LECCIÓN
+     ========================================= -->
+<div id="screenLesson" class="screen">
+  <div class="lesson-wrap">
+    <button class="back-btn" id="btnLessonBack">← Inicio</button>
+    <div class="lesson-world-badge" id="lessonBadge"></div>
+    <h2 class="lesson-title" id="lessonTitle"></h2>
+    <p class="lesson-intro" id="lessonIntro"></p>
+
+    <div class="key-card" id="lessonKey">
+      <span class="key-icon">🔑</span>
+      <p id="lessonKeyText"></p>
+    </div>
+
+    <div class="concepts-grid" id="conceptsGrid"></div>
+
+    <button class="primary-btn" id="btnStartWorld">¡Comenzar los retos! 🚀</button>
+  </div>
+</div>
+
+<!-- =========================================
+     SCREEN 3: JUEGO
+     ========================================= -->
+<div id="screenGame" class="screen">
+  <div class="game-topbar">
+    <button class="ctrl-btn" id="btnGameHome" title="Inicio">🏠</button>
+    <div class="game-meta">
+      <span class="meta-world" id="gameWorldLabel"></span>
+      <span class="meta-level" id="gameLevelLabel"></span>
+    </div>
+    <div class="game-controls-right">
+      <button class="ctrl-btn" id="btnGameSound" title="Sonido">🔊</button>
+    </div>
+  </div>
+
+  <div class="game-progress-wrap">
+    <div class="game-progress-bar"><div class="game-progress-fill" id="progressFill"></div></div>
+    <div class="timer-bar-wrap"><div class="timer-bar-fill" id="timerFill"></div></div>
+  </div>
+
+  <div class="game-hud">
+    <div class="hud-item score-box">
+      <span class="hud-label">Puntos</span>
+      <span class="hud-val" id="scoreDisplay">0</span>
+    </div>
+    <div class="hud-item lives-box">
+      <span class="hud-label">Vidas</span>
+      <div class="lives-icons" id="livesDisplay"></div>
+    </div>
+    <div class="hud-item timer-box">
+      <span class="hud-label">Tiempo</span>
+      <span class="hud-val timer-val" id="timerDisplay">60</span>
+    </div>
+  </div>
+
+  <div class="game-card" id="gameCard">
+    <div class="mission-tag" id="missionTag"></div>
+    <h3 class="game-question" id="gameQuestion"></h3>
+    <div class="game-fragment" id="gameFragment"></div>
+    <div class="game-hint" id="gameHint"><span class="hint-icon">💡</span> <span id="hintText"></span></div>
+    <div class="options-grid" id="optionsGrid"></div>
+  </div>
+</div>
+
+<!-- =========================================
+     MODAL: RETROALIMENTACIÓN
+     ========================================= -->
+<div id="feedbackModal" class="modal-overlay hidden">
+  <div class="modal-card" id="modalCard">
+    <div class="modal-emoji" id="modalEmoji"></div>
+    <h3 class="modal-title" id="modalTitle"></h3>
+    <p class="modal-body" id="modalBody"></p>
+    <div class="modal-remember" id="modalRemember"></div>
+    <button class="primary-btn" id="btnModalNext"></button>
+  </div>
+</div>
+
+<!-- MODAL: MUNDO COMPLETADO -->
+<div id="worldDoneModal" class="modal-overlay hidden">
+  <div class="modal-card modal-done">
+    <div class="modal-emoji">🏆</div>
+    <h3 class="modal-title">¡Mundo Completado!</h3>
+    <p class="modal-body" id="worldDoneMsg"></p>
+    <button class="primary-btn" id="btnWorldDone">Volver al inicio</button>
+  </div>
+</div>
+
+<!-- CONFETTI CANVAS -->
+<canvas id="confettiCanvas" class="confetti-canvas"></canvas>
+
+<script src="game.js"></script>
+</body>
+</html>
